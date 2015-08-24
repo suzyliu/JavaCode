@@ -1,0 +1,44 @@
+timeA : [[1, 4], [5,10]]...
+timeB : [[2, 3], [6, 9]]...
+during time : 3
+int[] result; 
+return result;
+nlogn
+timesA[0][i] start time.
+timesA[1][i] end time.
+   int[] timePlanner(int dur, int[][] timesA,int[][] timesB){
+      for(int i=0;i<timesA[0].length;i++){
+         
+         if(timesA[1][i]-timesA[0][i]>=dur){
+            for(int j=0;j<timesB[0].length;j++){
+                  if((timesB[1][j]-timesA[0][j]>=dur){
+                     int start= Math.max(timesA[0][i],timesB[0][j]);
+                     int end = Math.min(timesA[1][i],timesB[1][j]);
+                     if(end-start >= dur) return {start,end};
+                  }
+            }
+         }
+         
+      }
+      
+      }
+                     dur =2
+                                        *   
+      int indexA=0;   [1,2], [3, 4], [5,10]
+                                       i
+      int indexB=0;   [2,3], [5,7], [8, 10]
+                                *
+      while(indexB < timesB[0].length && indexA < timesA[0].length){
+         int start = Math.max(timesA[0][indexA], timesB[0][indexB]);
+         int end = Math.min(timesA[1][indexA],timesB[1][indexB]);
+         if(end - start >= dur) {
+            return  {start,end}; //5,7
+         } else{
+            if(timesB[0][indexB]>timesA[0][indexA]) indexA++;
+            else indexB++;
+         }
+         
+      }  
+// m = timesB.length sort
+// n = timeA.length  sort
+   nlogn + mlogm

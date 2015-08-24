@@ -1,0 +1,38 @@
+class Pramp {
+              currentE =7
+               extra 5 
+   //[10, 0, 2, 15, 8, 25] => 25 - 10 => 15 
+                 //[0,35,22,11,10]
+                 extra 35 
+   // 
+   int calculate(int[] arr){
+      
+      int unit=0;
+      int currentEnergy=0;
+      for(int i=0;i<arr.length-1;i++){
+         if(arr[i+1]>arr[i]){//up
+            if(currentEnergy < (arr[i+1]-arr[i]))//7<17
+            {
+               if(unit > (arr[i+1]-arr[i])-currentEnergy))
+                  currentEnergy=0;
+               else{
+                  unit += (arr[i+1]-arr[i])-currentEnergy;//17-7 =1
+                  currentEnergy=0;
+               }
+            }else{
+               currentEnergy -= (arr[i+1]-arr[i];
+               
+            }   
+         }else{//down
+            currentEnergy = (arr[i]-arr[i+1]);
+         }
+         return unit;   
+      }
+      
+      
+   }
+   
+   public static void main(String[] args) {
+  
+   }
+}
