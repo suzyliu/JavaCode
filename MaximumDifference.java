@@ -10,7 +10,7 @@ import java.util.*;
 class MaximumDifference{
  	
  	public static void main(String[] args) {
-		int[] arr={150,-100,12,-30,80,110,-150};
+		int[] arr={150,-100,12,-130,80,110,-50,120};
 		System.out.println(findMaxDifference(arr));
 	}
 	static int findMaxDifference(int[] arr){
@@ -20,7 +20,8 @@ class MaximumDifference{
 		boolean ifHigher=false;
 		for(int i=1;i<arr.length;i++){
 			if(arr[i]<min){
-				lastAmount = max-min;
+				if(max-min > lastAmount)
+					lastAmount = max-min;
 				min=arr[i];
 				max=min;	//reset.
 				ifHigher=false;
@@ -31,7 +32,7 @@ class MaximumDifference{
 				}
 			}
 		}
-		System.out.println("Make sure the index is higher: ifHigher ="+ifHigher);
+// 		System.out.println("Make sure the index is higher: ifHigher ="+ifHigher);
 		if(ifHigher)
 			return max-min;
 		else 
